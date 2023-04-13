@@ -17,6 +17,7 @@ export class AppComponent {
   // Add a new task
   addNewTask(): void {
     const newTask: ITask = {
+      id: Math.random().toString(36).substring(2),
       name: this.nameTask,
       state: false,
     };
@@ -26,16 +27,17 @@ export class AppComponent {
   }
 
   //Delete a task
-  deleteTask(name: string): void {
-    const newTasks = this.tasks.filter((task) => task.name !== name);
+  deleteTask(id: string): void {
+    const newTasks = this.tasks.filter((task) => task.id !== id);
     this.tasks = newTasks;
   }
 
   //Update a task
-  updateTask(name: string): void {
+  updateTask(id: string): void {
     const updateStateTask = this.tasks.map((task) => {
-      if (task.name === name) {
+      if (task.id === id) {
         const newState: ITask = {
+          id: task.id,
           name: task.name,
           state: !task.state,
         };
@@ -43,7 +45,6 @@ export class AppComponent {
       }
       return task;
     });
-
     this.tasks = updateStateTask;
   }
 }

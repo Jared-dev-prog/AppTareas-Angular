@@ -55,13 +55,13 @@
           [ngClass]="
             task.state ? 'fa-solid fa-circle-check' : 'fa-regular fa-circle'
           "
-          (click)="updateTask(task.name)"
+          (click)="updateTask(task.id)"
         ></i>
         {{ task.name }}
         <i
           class="fa-solid fa-trash cursor-pointer"
           style="color: #f10404"
-          (click)="deleteTask(task.name)"
+          (click)="deleteTask(task.id)"
         ></i>
       </li>
     </ul>
