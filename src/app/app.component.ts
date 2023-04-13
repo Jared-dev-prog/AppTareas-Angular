@@ -34,11 +34,12 @@ export class AppComponent {
   //Update a task
   updateTask(name: string): void {
     const updateStateTask = this.tasks.map((task) => {
-      if ((task.name = name)) {
-        return {
-          ...task,
+      if (task.name === name) {
+        const newState: ITask = {
+          name: task.name,
           state: !task.state,
         };
+        return newState;
       }
       return task;
     });
